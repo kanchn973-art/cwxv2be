@@ -25,12 +25,9 @@ app.use(helmet({
 }));
 
 // CORS Configuration
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',')
 app.use(cors({
     origin: function(origin, callback) {
-        const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [
-            'http://localhost:3000',
-            'https://cberwinx.vercel.app'
-        ];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
