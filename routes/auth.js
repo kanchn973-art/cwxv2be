@@ -249,4 +249,3 @@ exports.resendOTP = async (req, res) => {
     }
 };
 
-module.exports = exports;
